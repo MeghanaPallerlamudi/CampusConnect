@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | College Event Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <h2>Campus<span>Connect.</span></h2>
+            <p>College Event Management</p>
+        </div>
+
+        <div class="sidebar-menu">
+            <p class="menu-heading">STUDENT</p>
+
+            <button class="sidebar-link active" data-view="student" type="button">
+                <span>⌂</span> Student Dashboard
+            </button>
+
+            <a class="sidebar-link" href="#events">
+                <span>▦</span> Explore Events
+            </a>
+
+            <a class="sidebar-link" href="#myRegistrations">
+                <span>▣</span> My Registrations
+            </a>
+
+            <p class="menu-heading">ORGANIZER</p>
+
+            <button class="sidebar-link" id="adminLoginButton" type="button">
+                <span>▤</span> Admin Dashboard
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+            <p>CampusConnect</p>
+            <small>Discover • Register • Participate</small>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- STUDENT DASHBOARD -->
+        <section id="studentView">
+
+            <header class="topbar">
+                <p>CampusConnect / Student</p>
+                <div class="topbar-right">Student Portal</div>
+            </header>
+
+            <!-- STUDENT CANCELLATION NOTICES -->
+            <section
+                id="studentNotifications"
+                class="content-section notification-section"
+                hidden
+            >
+                <p class="eyebrow">IMPORTANT UPDATES</p>
+                <h2>Event Cancellation Notices</h2>
+                <div id="cancellationNoticeList"></div>
+            </section>
+
+            <!-- HERO -->
+            <section class="hero-section">
+                <div class="hero-text">
+                    <p class="eyebrow">YOUR CAMPUS. YOUR MOMENTS.</p>
+
+                    <h1>
+                        Discover Campus
+                        <span>Events</span>
+                    </h1>
+
+                    <p>
+                        Find your next campus experience.
+                        Explore, participate and create memories.
+                    </p>
+
+                    <a href="#events" class="primary-btn">
+                        Explore Events
+                    </a>
+                </div>
+
+                <div class="hero-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
+                        alt="Students working together"
+                    >
+                </div>
+            </section>
+
+            <!-- EVENTS -->
+            <section class="content-section" id="events">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">WHAT'S HAPPENING</p>
+                        <h2>Explore Events</h2>
+                    </div>
+                </div>
+
+                <div class="event-controls">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search events, categories or venues..."
+                    >
+
+                    <select id="categoryFilter">
+                        <option value="all">All Events</option>
+                        <option value="technical">Technical</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="sports">Sports</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div id="eventGrid" class="event-grid"></div>
+            </section>
+
+            <!-- REGISTRATION FORM -->
+            <section
+                class="content-section registration-section"
+                id="register"
+            >
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">SAVE YOUR SPOT</p>
+                        <h2>Register for an Event</h2>
+                    </div>
+                </div>
+
+                <form id="registrationForm" class="registration-form">
+<!-- REGISTRATION TYPE -->
+<label for="registrationType">Registration Type</label>
+<select id="registrationType" required>
+    <option value="individual">Individual Registration</option>
+    <option value="team">Team Registration</option>
+</select>
+
+<!-- TEAM NAME -->
+<div id="teamNameField" hidden>
+    <label for="teamName">Team Name</label>
+    <input
+        type="text"
+        id="teamName"
+        placeholder="Enter Team Name"
+    >
+</div>
+
+<!-- STUDENT / TEAM LEADER DETAILS -->
+<h3 id="leaderHeading">Student Details</h3>
+
+<input
+    type="text"
+    id="studentName"
+    placeholder="Student Name"
+    required
+>
+
+<input
+    type="text"
+    id="rollNumber"
+    placeholder="Roll Number"
+    required
+>
+
+<label for="department">Department</label>
+<select id="department" required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="CSM">CSM</option>
+    <option value="MECH">MECH</option>
+    <option value="ECE">ECE</option>
+</select>
+
+<!-- TEAM MEMBERS -->
+<div id="teamMembersSection" hidden>
+    <h3>Team Members</h3>
+    <p>Maximum 5 students including the team leader.</p>
+
+    <div id="teamMembersFields"></div>
+
+    <button
+        type="button"
+        id="addTeamMemberBtn"
+        class="secondary-btn"
+    >
+        + Add Team Member
+    </button>
+
+    <p id="teamMemberCount">Total Students: 1 / 5</p>
+</div>
+
+<!-- EVENT SELECTION -->
+<select id="eventSelect" required>
+    <option value="">Select an event</option>
+</select>
+                    <!-- STUDENT PAYMENT PANEL -->
+                    <div id="studentPaymentPanel" class="student-payment-panel" hidden>
+                        <h3>Complete Event Payment</h3>
+                        <p id="paymentAmountText"></p>
+                        <p>Scan this official CampusConnect payment QR code using your UPI app.</p>
+
+                        <img
+                            id="paymentQrImage"
+                            src="images/payment-qr.png"
+                            alt="CampusConnect payment QR code"
+                        >
+
+                        <label for="paymentTransactionId">
+                            UPI Transaction ID / UTR Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="paymentTransactionId"
+                            placeholder="Enter your payment transaction ID"
+                            autocomplete="off"
+                        >
+
+                        <small>
+                            Your registration will remain pending until
+                            the administrator verifies your payment.
+                        </small>
+                    </div>
+
+                    <p id="registrationMessage" role="status"></p>
+
+                    <button
+                        type="submit"
+                        id="registrationSubmitBtn"
+                        class="primary-btn"
+                    >
+                        Register Now
+                    </button>
+                </form>
+            </section>
+
+            <!-- MY REGISTRATIONS -->
+            <section class="content-section" id="myRegistrations">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR ACTIVITY</p>
+                        <h2>My Registrations</h2>
+                    </div>
+                </div>
+
+                <div
+                    id="registrationList"
+                    class="registration-list"
+                ></div>
+            </section>
+
+        </section>
+
+        <!-- ADMIN LOGIN -->
+        <section id="adminLoginView" hidden>
+
+            <header class="topbar">
+                <p>CampusConnect / Admin Login</p>
+
+                <button
+                    class="secondary-btn"
+                    type="button"
+                    data-view="student"
+                >
+                    Back to Student View
+                </button>
+            </header>
+
+            <div class="login-page">
+                <div class="login-card">
+                    <div class="login-icon">🔐</div>
+
+                    <p class="eyebrow">RESTRICTED ACCESS</p>
+                    <h1>Admin Login</h1>
+
+                    <p class="login-description">
+                        Sign in to access the CampusConnect
+                        event management dashboard.
+                    </p>
+
+                    <form id="adminLoginForm">
+
+                        <label for="adminUsername">Admin ID</label>
+
+                        <input
+                            type="text"
+                            id="adminUsername"
+                            placeholder="Enter admin ID"
+                            autocomplete="username"
+                            required
+                        >
+
+                        <label for="adminPassword">Password</label>
+
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="adminPassword"
+                                placeholder="Enter password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="password-toggle"
+                            >
+                                Show
+                            </button>
+                        </div>
+
+                        <p id="loginMessage" role="alert"></p>
+
+                        <button
+                            type="submit"
+                            class="primary-btn login-submit"
+                        >
+                            Login to Dashboard
+                        </button>
+                    </form>
+
+                    <p class="login-footer">
+                        Authorized administrators only.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN DASHBOARD -->
+        <section id="adminView" hidden>
+
+            <header class="topbar">
+                <p>CampusConnect / Administration</p>
+
+                <div class="admin-topbar-actions">
+                    <span class="topbar-right">Administrator</span>
+
+                    <button
+                        class="secondary-btn"
+                        id="adminLogoutButton"
+                        type="button"
+                    >
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- ADMIN WELCOME -->
+            <section class="admin-welcome">
+                <p class="eyebrow">ORGANIZER PORTAL</p>
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    Manage college events, student registrations
+                    and event activities.
+                </p>
+            </section>
+
+            <!-- ADMIN STATISTICS -->
+            <section class="admin-stats">
+                <div class="stat-card">
+                    <p>Total Events</p>
+                    <h2 id="totalEvents">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Registrations</p>
+                    <h2 id="totalRegistrations">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Available Seats</p>
+                    <h2 id="totalSeats">0</h2>
+                </div>
+            </section>
+
+            <!-- ADMIN EVENT MANAGEMENT -->
+            <section class="content-section" id="adminEvents">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">EVENT ORGANIZATION</p>
+                        <h2 id="adminFormHeading">Add New Event</h2>
+                        <p>Create an event and upload its poster.</p>
+                    </div>
+                </div>
+
+                <!-- ADD / EDIT EVENT FORM -->
+                <form
+                    id="adminEventForm"
+                    class="admin-event-form"
+                >
+
+                    <input
+                        type="text"
+                        id="eventName"
+                        placeholder="Event Name"
+                        required
+                    >
+
+                    <select id="eventCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="technical">Technical</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="sports">Sports</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="eventDate"
+                        required
+                    >
+
+                    <input
+                        type="time"
+                        id="eventTime"
+                        value="10:00"
+                        required
+                    >
+
+                    <select id="eventPaymentType" required>
+                        <option value="free">Free Event</option>
+                        <option value="paid">Paid Event</option>
+                    </select>
+
+                    <input
+                        type="number"
+                        id="eventFee"
+                        placeholder="Registration Fee (₹)"
+                        min="1"
+                        step="1"
+                        value="0"
+                        hidden
+                    >
+
+                    <input
+                        type="text"
+                        id="eventVenue"
+                        placeholder="Event Venue"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="eventSeats"
+                        placeholder="Available Seats"
+                        min="1"
+                        required
+                    >
+
+                    <textarea
+                        id="eventDescription"
+                        placeholder="Event Description"
+                        rows="4"
+                        required
+                    ></textarea>
+
+                    <!-- POSTER UPLOAD -->
+                    <div class="poster-upload-section">
+                        <label for="eventPoster">
+                            Upload Event Poster
+                        </label>
+
+                        <input
+                            type="file"
+                            id="eventPoster"
+                            accept="image/png, image/jpeg, image/webp"
+                            required
+                        >
+
+                        <p class="upload-hint">
+                            Supported formats: JPG, PNG and WEBP.
+                            Maximum size: 1 MB.
+                        </p>
+
+                        <img
+                            id="posterPreview"
+                            alt="Event poster preview"
+                            hidden
+                        >
+                    </div>
+
+                    <p id="adminEventMessage" role="status"></p>
+
+                    <button
+                        type="submit"
+                        id="saveEventBtn"
+                        class="primary-btn"
+                    >
+                        Add Event
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelEventEditBtn"
+                        class="secondary-btn"
+                        hidden
+                    >
+                        Cancel Edit
+                    </button>
+                </form>
+
+                <!-- EXISTING EVENTS -->
+                <div class="section-heading admin-existing-heading">
+                    <div>
+                        <p class="eyebrow">EVENT CONTROL</p>
+                        <h2>Manage Existing Events</h2>
+                    </div>
+                </div>
+
+                <div id="adminEventList"></div>
+
+                <!-- EVENT CANCELLATION PANEL -->
+                <div
+                    id="eventCancellationPanel"
+                    class="cancellation-panel"
+                    hidden
+                >
+                    <h3>Cancel Event</h3>
+
+                    <p id="cancellationEventName"></p>
+
+                    <label for="cancellationReason">
+                        Reason for cancellation
+                    </label>
+
+                    <textarea
+                        id="cancellationReason"
+                        rows="4"
+                        placeholder="Explain why this event is being cancelled..."
+                        required
+                    ></textarea>
+
+                    <p id="cancellationMessage" role="alert"></p>
+
+                    <button
+                        type="button"
+                        id="confirmEventCancellation"
+                        class="delete-confirm-btn"
+                    >
+                        Confirm Event Cancellation
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelEventCancellation"
+                        class="secondary-btn"
+                    >
+                        Go Back
+                    </button>
+                </div>
+            </section>
+
+            <!-- ADMIN REGISTRATIONS -->
+            <section class="content-section" id="adminRegistrations">
+                <h2>Student Registrations</h2>
+
+                <div id="adminRegistrationList"></div>
+            </section>
+
+<!-- PAYMENT VERIFICATION -->
+<section class="content-section" id="adminPayments">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">PAYMENT CONTROL</p>
+            <h2>Payment Verification</h2>
+            <p>Review student payment submissions.</p>
+        </div>
+    </div>
+
+    <div id="adminPaymentList"></div>
+
+</section>
+
+
+<!-- REFUND MANAGEMENT -->
+<section class="content-section" id="adminRefunds">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">REFUND CONTROL</p>
+            <h2>Refund Management</h2>
+            <p>Review and manage refunds for cancelled events.</p>
+        </div>
+    </div>
+
+    <div id="adminRefundList"></div>
+
+</section>
+
+
+</section>
+
+<!-- FOOTER -->
+
+        <footer class="footer">
+            <h3>CampusConnect.</h3>
+            <p>Making every campus moment count.</p>
+            <small>© 2026 CampusConnect</small>
+        </footer>
+
+    </main>
+</div>
+<!-- QR CODE LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- PROJECT JAVASCRIPT -->
+<script src="js/script.js" defer></script>
+
+</body>
+</html>

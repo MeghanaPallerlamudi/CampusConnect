@@ -1,0 +1,1944 @@
+/* =========================================================
+   CAMPUSCONNECT - COMPLETE RESPONSIVE DESIGN SYSTEM
+   Navy, purple and lavender theme
+   ========================================================= */
+
+:root {
+    --navy: #19264b;
+    --navy-light: #2d3e6b;
+    --purple: #8950dc;
+    --purple-dark: #713bc0;
+    --lavender: #eee5ff;
+    --lavender-light: #f7f3ff;
+    --white: #ffffff;
+    --background: #f6f7fc;
+    --text: #202b49;
+    --muted: #7c879f;
+    --border: #e5e7f0;
+    --green: #21966b;
+    --red: #bd344c;
+    --orange: #e69b35;
+    --shadow: 0 8px 28px rgba(25, 38, 75, 0.07);
+    --radius: 16px;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+a {
+    color: inherit;
+}
+
+/* MAIN LAYOUT */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#studentView,
+#adminLoginView,
+#adminView {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 313px;
+    min-width: 313px;
+    min-height: 100vh;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 17px 25px;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    padding: 5px 6px 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-logo h2 {
+    color: var(--navy);
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.sidebar-logo h2 span {
+    color: var(--purple);
+}
+
+.sidebar-logo p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.sidebar-menu {
+    margin-top: 32px;
+}
+
+.menu-heading {
+    color: #9ba3b5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 18px 12px 13px;
+}
+
+.sidebar-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 18px;
+    margin-bottom: 8px;
+    border-radius: 11px;
+    text-decoration: none;
+    color: var(--navy);
+    background: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    transition: 0.25s ease;
+}
+
+.sidebar-link span {
+    width: 25px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: var(--lavender);
+    color: var(--purple-dark);
+}
+
+.sidebar-link.active {
+    font-weight: 700;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 20px 10px 5px;
+}
+
+.sidebar-bottom p {
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.sidebar-bottom small {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* MAIN CONTENT AND TOPBAR */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 42px 35px;
+    overflow-x: hidden;
+}
+
+.topbar {
+    min-height: 85px;
+    background: var(--white);
+    padding: 18px 42px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 0 -42px 35px;
+}
+
+.topbar p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.topbar-right {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.admin-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* GENERAL SECTIONS */
+.content-section {
+    margin: 55px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 29px;
+    line-height: 1.3;
+    color: var(--navy);
+    margin-top: 3px;
+}
+
+.section-heading p:not(.eyebrow) {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+/* HERO */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    height: 425px;
+    min-height: 425px;
+    background: linear-gradient(120deg, #f0e8ff, #f6efff);
+    border-radius: 22px;
+    margin: 35px 0 65px;
+    overflow: hidden;
+}
+
+.hero-text {
+    padding: 45px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.hero-text h1 {
+    color: var(--navy);
+    font-size: clamp(38px, 3.2vw, 52px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 18px 0;
+    max-width: 100%;
+}
+
+.hero-text h1 span {
+    display: block;
+    color: var(--purple);
+}
+
+.hero-text > p:not(.eyebrow) {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 25px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 425px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* BUTTONS */
+.primary-btn,
+.secondary-btn,
+.delete-confirm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.primary-btn {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.secondary-btn {
+    background: var(--white);
+    color: var(--navy);
+    border: 1px solid var(--border);
+}
+
+.secondary-btn:hover {
+    background: var(--lavender-light);
+}
+
+.delete-confirm-btn {
+    background: var(--red);
+    color: var(--white);
+}
+
+.delete-confirm-btn:hover {
+    background: #9f263d;
+}
+
+/* INPUTS AND FORMS */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: 0.2s;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(137, 80, 220, 0.12);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+input[type="file"] {
+    padding: 12px;
+    background: var(--white);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+}
+
+label {
+    display: block;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+#registrationMessage,
+#loginMessage,
+#adminEventMessage,
+#cancellationMessage {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+}
+
+/* EVENT SEARCH AND FILTERS */
+.event-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.event-controls input {
+    flex: 1;
+}
+
+.event-controls select {
+    width: 210px;
+}
+
+/* EVENT GRID AND CARDS */
+#eventGrid.event-grid,
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+}
+
+#eventGrid .event-card,
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid #e8e6f2;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: hidden;
+    min-width: 0;
+    box-shadow: 0 8px 25px rgba(23, 36, 72, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#eventGrid .event-card:hover,
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(23, 36, 72, 0.12);
+}
+
+.event-card img,
+.event-poster {
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+.event-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+}
+
+.event-card h3 {
+    color: var(--navy);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 4px 0 16px;
+}
+
+.event-card p {
+    color: #78849d;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+#eventGrid .event-card p:nth-of-type(1) {
+    display: table;
+    background: var(--lavender);
+    color: var(--purple-dark);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 25px;
+    margin-bottom: 12px;
+}
+
+#eventGrid .event-card p:nth-of-type(2) {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.event-card button {
+    width: 100%;
+    min-height: 56px;
+    margin-top: auto;
+    padding: 14px 18px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.event-card button:hover {
+    background: var(--navy-light);
+}
+
+.event-card button:disabled {
+    background: #a0a8ba;
+    cursor: not-allowed;
+}
+
+.event-category {
+    display: inline-block;
+    width: fit-content;
+    padding: 6px 13px;
+    border-radius: 22px;
+    background: var(--lavender);
+    color: var(--purple-dark);
+    font-size: 12px;
+    font-weight: 800;
+    margin: 5px 0;
+}
+
+/* STUDENT REGISTRATION FORM */
+.registration-section {
+    background: transparent;
+    padding: 15px 5px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.registration-form {
+    width: min(100%, 1050px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    background: var(--white);
+    padding: 45px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.registration-form > select,
+.registration-form > p,
+.registration-form > button,
+.student-payment-panel {
+    grid-column: 1 / -1;
+}
+
+.registration-form input,
+.registration-form select {
+    min-height: 65px;
+    font-size: 16px;
+}
+
+.registration-form button {
+    width: 100%;
+    min-height: 65px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+/* STUDENT PAYMENT PANEL */
+.student-payment-panel {
+    background: var(--lavender-light);
+    border: 1px solid #d9c9ff;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+}
+
+.student-payment-panel h3 {
+    color: var(--navy);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.student-payment-panel p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+#paymentAmountText {
+    font-size: 27px;
+    color: var(--purple-dark);
+    font-weight: 800;
+}
+
+#paymentQrImage {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    padding: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 18px auto;
+}
+
+.student-payment-panel label,
+.student-payment-panel input,
+.student-payment-panel small {
+    text-align: left;
+}
+
+.student-payment-panel small {
+    display: block;
+    color: var(--muted);
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* MY REGISTRATIONS */
+#registrationList.registration-list,
+.registration-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+}
+
+#registrationList .registration-card,
+.registration-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--white);
+    border: 1px solid #e8e6f2;
+    border-radius: 18px;
+    padding: 30px;
+    min-width: 0;
+    box-shadow: 0 8px 25px rgba(23, 36, 72, 0.06);
+}
+
+.registration-card h3 {
+    color: var(--navy);
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 18px;
+}
+
+.registration-card p {
+    color: #78849d;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.registration-card h4 {
+    color: var(--navy);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 6px 0 18px;
+}
+
+.registration-qr {
+    width: 100%;
+    min-height: 245px;
+    background: var(--lavender-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.registration-qr canvas,
+.registration-qr img {
+    display: block;
+    width: 200px !important;
+    height: 200px !important;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+#registrationList button[data-download-id] {
+    width: 100%;
+    min-height: 58px;
+    background: var(--purple);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+#registrationList button[data-download-id]:hover {
+    background: var(--purple-dark);
+}
+
+#registrationList button[data-cancel-registration] {
+    align-self: flex-start;
+    min-height: 48px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 9px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#registrationList button[data-cancel-registration]:hover {
+    background: var(--navy-light);
+}
+
+/* STUDENT CANCELLATION NOTICES */
+#studentNotifications,
+.notification-section {
+    background: #fff8f8;
+    border: 1px solid #f5d5d9;
+    border-left: 5px solid var(--red);
+    padding: 28px;
+    border-radius: 14px;
+    margin: 25px 0;
+}
+
+#studentNotifications h2,
+.notification-section h2 {
+    color: var(--navy);
+    margin-bottom: 18px;
+    font-size: 25px;
+}
+
+#cancellationNoticeList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.notification-card,
+.notice,
+.cancellation-notice {
+    background: var(--white);
+    border: 1px solid #f2d9dc;
+    border-radius: 12px;
+    padding: 22px;
+    margin-top: 8px;
+}
+
+.notification-card h3 {
+    color: var(--red);
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.notification-card p,
+.notice p,
+.cancellation-notice p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.notification-card .notification-date {
+    font-size: 12px;
+    color: #9ba3b5;
+    margin-top: 12px;
+}
+
+/* OPTIONAL CENTERED CANCELLATION MODAL */
+.cancellation-popup-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 999999;
+    background: rgba(15, 24, 48, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cancellation-popup {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: ccPopupAppear 0.3s ease;
+}
+
+.cancellation-popup-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #fff0f1;
+    color: #c0394b;
+    font-size: 34px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancellation-popup h2 {
+    color: var(--navy);
+    font-size: 25px;
+    margin: 0 0 18px;
+}
+
+.cancellation-popup h3 {
+    color: var(--purple);
+    font-size: 21px;
+    margin: 0 0 15px;
+}
+
+.cancellation-popup p {
+    color: #65718c;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+.cancellation-popup-info {
+    background: var(--lavender-light);
+    padding: 14px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.cancellation-popup-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 11px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cancellation-popup-button:hover {
+    background: var(--purple);
+}
+
+@keyframes ccPopupAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ADMIN LOGIN */
+#adminLoginView .topbar {
+    margin-bottom: 0;
+}
+
+.login-page {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 15px;
+    background:
+        radial-gradient(circle at top left, #f0e7ff, transparent 45%),
+        var(--background);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 575px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    padding: 45px;
+    box-shadow: var(--shadow);
+}
+
+.login-icon {
+    width: 85px;
+    height: 85px;
+    background: var(--lavender);
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.login-card h1 {
+    color: var(--navy);
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.login-description {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+.login-card form label {
+    margin-top: 17px;
+}
+
+.password-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.password-wrapper input {
+    flex: 1;
+    min-width: 0;
+}
+
+.password-toggle {
+    background: transparent;
+    color: var(--purple);
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.login-submit {
+    width: 100%;
+    margin-top: 28px;
+    min-height: 60px;
+}
+
+.login-footer {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+}
+
+/* ADMIN WELCOME */
+.admin-welcome {
+    background: linear-gradient(115deg, var(--navy), #344675);
+    color: var(--white);
+    padding: 48px 60px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+}
+
+.admin-welcome .eyebrow {
+    color: #d0baff;
+}
+
+.admin-welcome h1 {
+    color: var(--white);
+    font-size: 43px;
+    margin-bottom: 12px;
+}
+
+.admin-welcome p:not(.eyebrow) {
+    color: #e0e5f2;
+    font-size: 18px;
+}
+
+/* ADMIN STATISTICS */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: 17px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.stat-card h2 {
+    color: var(--purple);
+    font-size: 43px;
+    margin-top: 10px;
+}
+
+/* ADMIN EVENT MANAGEMENT */
+#adminEvents,
+#adminRegistrations,
+#adminPayments {
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 45px;
+}
+
+.admin-event-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 26px;
+    margin-top: 25px;
+    padding: 45px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+}
+
+.admin-event-form input,
+.admin-event-form select,
+.admin-event-form textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 75px;
+    padding: 18px 22px;
+    border: 1.5px solid #e1e5ef;
+    border-radius: 14px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 17px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#eventName { grid-column: 1; grid-row: 1; }
+#eventCategory { grid-column: 2; grid-row: 1; }
+#eventDate { grid-column: 1; grid-row: 2; }
+#eventTime { grid-column: 2; grid-row: 2; }
+#eventPaymentType { grid-column: 1; grid-row: 3; }
+#eventFee { grid-column: 2; grid-row: 3; }
+#eventVenue { grid-column: 1; grid-row: 4; }
+#eventSeats { grid-column: 2; grid-row: 4; }
+
+#eventDescription {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    min-height: 175px;
+    resize: vertical;
+}
+
+.poster-upload-section {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    width: 100%;
+    padding: 30px;
+    border: 2px dashed #9550ed;
+    border-radius: 18px;
+    background: var(--lavender-light);
+    box-sizing: border-box;
+}
+
+.poster-upload-section label {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--navy);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.poster-upload-section input[type="file"] {
+    width: 100%;
+    min-height: 65px;
+    background: var(--white);
+}
+
+.upload-hint {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+#posterPreview {
+    width: 220px;
+    max-width: 100%;
+    max-height: 220px;
+    margin-top: 20px;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+#saveEventBtn {
+    grid-column: 1;
+    grid-row: 7;
+    width: 100%;
+    min-height: 74px;
+    border: none;
+    border-radius: 12px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#saveEventBtn:hover {
+    background: var(--navy-light);
+}
+
+#adminEventMessage,
+#cancelEventEditBtn {
+    grid-column: 1 / -1;
+}
+
+.admin-event-form input:focus,
+.admin-event-form select:focus,
+.admin-event-form textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(137, 80, 223, 0.1);
+}
+
+/* EXISTING ADMIN EVENTS */
+.admin-existing-heading {
+    margin-top: 55px;
+}
+
+#adminEventList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+#adminEventList > * {
+    width: 100%;
+    min-width: 0;
+    padding: 26px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+}
+
+#adminEventList img {
+    display: block;
+    width: 172px;
+    height: 132px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 11px;
+    margin: 0 0 25px;
+}
+
+#adminEventList h3 {
+    color: var(--navy);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 12px;
+}
+
+#adminEventList p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 8px;
+}
+
+#adminEventList button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 9px;
+    padding: 12px 21px;
+    margin: 14px 7px 0 0;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#adminEventList button:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+}
+
+#adminEventList button:last-child {
+    background: var(--red);
+}
+
+#adminEventList button:last-child:hover {
+    background: #9f263d;
+}
+
+/* ADMIN EVENT CANCELLATION PANEL */
+.cancellation-panel {
+    background: #fff7f7;
+    border: 1px solid #f2cbd1;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 28px;
+}
+
+.cancellation-panel h3 {
+    color: var(--red);
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.cancellation-panel p {
+    margin-bottom: 15px;
+}
+
+.cancellation-panel textarea {
+    margin: 10px 0 18px;
+    min-height: 150px;
+}
+
+.cancellation-panel button {
+    margin: 5px 8px 0 0;
+}
+
+/* ADMIN REGISTRATIONS */
+#adminRegistrationList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.admin-registration-card,
+.registration-record {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+#adminRegistrations > h2 {
+    color: var(--navy);
+    font-size: 30px;
+    margin-bottom: 22px;
+}
+
+/* PAYMENT VERIFICATION */
+#adminPaymentList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.admin-payment-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 5px 18px rgba(23, 36, 72, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.admin-payment-card h3 {
+    color: var(--navy);
+    font-size: 21px;
+    margin: 0 0 5px;
+}
+
+.admin-payment-card p {
+    color: #65718c;
+    font-size: 15px;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.payment-pending {
+    display: inline-block;
+    width: fit-content;
+    background: #fff2d6;
+    color: #a66b00;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.payment-actions button {
+    flex: 1;
+    min-width: 130px;
+    padding: 13px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.approve-payment-btn {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.approve-payment-btn:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+}
+
+.reject-payment-btn {
+    background: #fff0f1;
+    color: #c0394b;
+    border: 1px solid #f3c6cb !important;
+}
+
+.reject-payment-btn:hover {
+    background: #c0394b;
+    color: var(--white);
+}
+
+.no-payments-message {
+    color: #788197;
+    padding: 20px;
+}
+
+.payment-status {
+    display: inline-block;
+    width: fit-content;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.status-pending {
+    background: #fff3d9;
+    color: #a66a00;
+}
+
+.status-approved {
+    background: #e1f7ec;
+    color: var(--green);
+}
+
+.status-rejected {
+    background: #ffe7e9;
+    color: var(--red);
+}
+
+/* FOOTER */
+.footer {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 65px;
+}
+
+.footer h3 {
+    color: var(--white);
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.footer p {
+    color: #d0d8eb;
+    font-size: 14px;
+}
+
+.footer small {
+    color: #aab6d0;
+    font-size: 12px;
+}
+
+/* TABLETS */
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 245px;
+        min-width: 245px;
+    }
+
+    .main-content {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .topbar {
+        margin-left: -25px;
+        margin-right: -25px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    #eventGrid.event-grid,
+    .event-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-text {
+        padding: 30px;
+    }
+
+    #registrationList.registration-list,
+    .registration-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .app-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+    }
+
+    .hero-section {
+        height: auto;
+        min-height: 380px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .app-layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: auto;
+        padding: 18px 15px;
+    }
+
+    .sidebar-logo {
+        padding: 5px 8px 18px;
+    }
+
+    .sidebar-logo h2 {
+        font-size: 24px;
+    }
+
+    .sidebar-menu {
+        margin-top: 15px;
+    }
+
+    .menu-heading {
+        margin: 14px 5px 8px;
+    }
+
+    .sidebar-link {
+        display: inline-flex;
+        width: auto;
+        margin: 3px;
+        padding: 10px 12px;
+        font-size: 12px;
+        gap: 7px;
+    }
+
+    .sidebar-link span {
+        width: auto;
+        font-size: 16px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .main-content {
+        padding: 18px 15px 25px;
+    }
+
+    .topbar {
+        min-height: 65px;
+        padding: 13px 15px;
+        margin: 0 -15px 22px;
+        gap: 8px;
+    }
+
+    .topbar p,
+    .topbar-right {
+        font-size: 12px;
+    }
+
+    .admin-topbar-actions {
+        gap: 7px;
+    }
+
+    .admin-topbar-actions .secondary-btn {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+        margin: 20px 0 40px;
+    }
+
+    .hero-text {
+        padding: 28px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text > p:not(.eyebrow) {
+        font-size: 14px;
+    }
+
+    .hero-image {
+        height: 240px;
+        min-height: 0;
+    }
+
+    #eventGrid.event-grid,
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .event-card {
+        padding: 16px;
+    }
+
+    .event-card img,
+    .event-poster {
+        height: 220px;
+    }
+
+    .event-card h3 {
+        font-size: 21px;
+    }
+
+    .event-controls {
+        flex-direction: column;
+    }
+
+    .event-controls select {
+        width: 100%;
+    }
+
+    .registration-form {
+        padding: 22px;
+        gap: 15px;
+    }
+
+    .registration-form input,
+    .registration-form select {
+        min-height: 55px;
+    }
+
+    .registration-form button {
+        min-height: 55px;
+        font-size: 15px;
+    }
+
+    #registrationList.registration-list,
+    .registration-list {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .registration-card {
+        padding: 20px;
+    }
+
+    .registration-qr {
+        min-height: 220px;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 22px;
+    }
+
+    .admin-welcome {
+        padding: 27px;
+    }
+
+    .admin-welcome h1 {
+        font-size: 30px;
+    }
+
+    .admin-welcome p:not(.eyebrow) {
+        font-size: 14px;
+    }
+
+    .admin-event-form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .admin-event-form > * {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    .admin-event-form > button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #adminEventList > * {
+        padding: 18px;
+    }
+
+    #adminEventList img {
+        width: 145px;
+        height: 110px;
+        margin-bottom: 18px;
+    }
+
+    #adminEventList h3 {
+        font-size: 20px;
+    }
+
+    #adminEventList button {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    #adminPaymentList {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-actions {
+        flex-direction: column;
+    }
+
+    .payment-actions button {
+        width: 100%;
+    }
+
+    .login-page {
+        min-height: calc(100vh - 100px);
+        padding: 25px 5px;
+    }
+
+    .login-card {
+        padding: 25px;
+    }
+
+    .login-card h1 {
+        font-size: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .content-section {
+        margin: 38px 0;
+    }
+
+    #paymentQrImage {
+        width: 180px;
+        height: 180px;
+    }
+
+    #studentNotifications,
+    .notification-section {
+        padding: 18px;
+    }
+
+    .cancellation-popup {
+        padding: 25px 20px;
+    }
+
+    .cancellation-popup h2 {
+        font-size: 21px;
+    }
+
+    .footer {
+        margin-top: 40px;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 380px) {
+    .main-content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .topbar {
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .sidebar-link {
+        font-size: 11px;
+        padding: 8px;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-text {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 19px;
+    }
+}
+/* =========================================
+   TEAM REGISTRATION STYLES
+   ========================================= */
+
+#registrationType,
+#department,
+#teamName {
+    width: 100%;
+}
+
+#teamNameField,
+#teamMembersSection {
+    grid-column: 1 / -1;
+}
+
+#teamMembersSection {
+    padding: 22px;
+    background: var(--lavender-light);
+    border: 1px solid #d9c9ff;
+    border-radius: 14px;
+}
+
+#teamMembersSection h3 {
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+#teamMembersSection > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 8px 0 15px;
+}
+
+.team-member-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.team-member-fields input,
+.team-member-fields select {
+    min-width: 0;
+}
+
+.team-member-fields button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #fff0f1;
+    color: var(--red);
+    font-weight: 700;
+}
+
+#addTeamMemberBtn {
+    width: auto;
+    min-height: 45px;
+    margin-top: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+}
+
+#teamMemberCount {
+    color: var(--purple-dark);
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+    .team-member-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member-fields button {
+        grid-column: 1;
+    }
+
+    #teamMembersSection {
+        padding: 15px;
+    }
+}
+
+/* =========================================
+   CAMPUSCONNECT - REFUND MANAGEMENT
+========================================= */
+
+#adminRefunds {
+    padding-bottom: 35px;
+}
+
+#adminRefunds .section-heading {
+    margin-bottom: 28px;
+}
+
+#adminRefundList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.refund-card {
+    background: #ffffff;
+    border: 1px solid #e4e5f0;
+    border-left: 5px solid #8750d8;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(23, 36, 72, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow-wrap: anywhere;
+}
+
+.refund-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(23, 36, 72, 0.12);
+}
+
+.refund-card h3 {
+    color: #172448;
+    font-size: 23px;
+    margin: 0 0 18px;
+    font-weight: 750;
+}
+
+.refund-card p {
+    color: #596782;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 9px 0;
+}
+
+.refund-card p:nth-of-type(4) {
+    color: #172448;
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.refund-process-button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #172448;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.refund-process-button:hover {
+    background: #8750d8;
+}
+
+.refund-process-button:focus-visible {
+    outline: 3px solid #8750d8;
+    outline-offset: 3px;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    #adminRefundList {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .refund-card {
+        padding: 19px;
+    }
+
+    .refund-card h3 {
+        font-size: 20px;
+    }
+}
